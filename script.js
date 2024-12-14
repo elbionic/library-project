@@ -76,3 +76,64 @@ const pagesInp = favDialog.querySelector("#pages");
 const readInp = favDialog.querySelector("#read");
 const notReadInp = favDialog.querySelector("#notRead");
 const confirmBtn = favDialog.querySelector("#confirmBtn");
+
+// "Show the dialog" button opens the <dialog> modally
+showButton.addEventListener("click", () => {
+    favDialog.showModal();
+});
+
+
+let counter = 6;
+
+// Prevent the "confirm" button from the default behavior of submitting the form, and close the dialog with the `close()` method, which triggers the "close" event.
+confirmBtn.addEventListener("click", (event) => {
+    event.preventDefault(); // We don't want to submit this fake form
+    const tableRow = document.createElement("tr");
+    tableRow.classList.add("tr-parent");
+    const tableData0 = document.createElement("td");
+    const tableData1 = document.createElement("td");
+    const tableData2 = document.createElement("td");
+    const tableData3 = document.createElement("td");
+    const tableData4 = document.createElement("td");
+    const tableData5 = document.createElement("td");
+    const removeBtn = document.createElement("button");
+    const radioButtons = document.querySelectorAll('input[name="readStatus"]');
+    const titleValue = titleInp.value;
+    const authorValue = authorInp.value;
+    const pagesValue = pagesInp.value;
+    let selectedRadioBtn;
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+            selectedRadioBtn = radioButton.value;
+            break;
+        }
+    }
+    const readStatusValue = selectedRadioBtn;
+    tableData0.textContent = `${counter}`;
+    tableData1.textContent = `${titleInp.value}`;
+    tableData2.textContent = `${authorInp.value}`;
+    tableData3.textContent = `${pagesInp.value}`;
+    tableData4.textContent = `${selectedRadioBtn}`;
+    tableData5.textContent = ``;
+    removeBtn.textContent = 'remove'
+    tableBody.appendChild(tableRow);
+    tableRow.appendChild(tableData0);
+    tableRow.appendChild(tableData1);
+    tableRow.appendChild(tableData2);
+    tableRow.appendChild(tableData3);
+    tableRow.appendChild(tableData4);
+    tableRow.appendChild(tableData5);
+    tableData5.appendChild(removeBtn);
+    newBook = new Book(titleValue, authorValue, pagesValue, readStatusValue);
+    newBook.dataset.number = myLibrary.length;
+    myLibrary.push(newBook);
+    counter++;
+    removeBtn.classList.add("removeBtn");
+    console.log(myLibrary);
+    favDialog.close();
+});
+
+for (var i = 0; i < myLibrary.length; i++) {
+    const prop1 = "number";
+    myLibrary[i][prop1] = i + 2;
+}

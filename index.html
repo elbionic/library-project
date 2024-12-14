@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,37 @@
     <script src="script.js" defer></script>
     <title>Library Project</title>
 </head>
-<body>
+
+<body id="htmlBody">
+    <!-- A modal dialog containing a form -->
+    <dialog id="favDialog">
+        <form>
+            <p>
+                <label for="title">Title</label>
+                <input id="title" type="text"></input>
+            </p>
+            <p>
+                <label for="author">Author</label>
+                <input id="author" type="text"></input>
+            </p>
+            <p>
+                <label for="pages">Pages</label>
+                <input id="pages" type="Number"></input>
+            </p>
+            <p>
+                <label for="read">read status:</label>
+                <input type="radio" id="read" name="readStatus" value="read">read</input>
+                <input type="radio" id="notRead" name="readStatus" value="not read">not read</input>
+            </p>
+            <div>
+                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button id="confirmBtn" value="default">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+    <p>
+        <button id="showDialog">New Book</button>
+    </p>
     <table>
         <thead>
             <tr>
@@ -33,4 +64,5 @@
         </tbody>
     </table>
 </body>
+
 </html>
