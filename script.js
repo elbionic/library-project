@@ -65,3 +65,14 @@ function displayBooks() {
         removeBtn.classList.add("removeBtn");
     });
 };
+
+const htmlBody = document.getElementById("htmlBody");
+const showButton = document.getElementById("showDialog");
+const favDialog = document.getElementById("favDialog");
+const outputBox = document.querySelector("output");
+const titleInp = favDialog.querySelector("#title");
+const authorInp = favDialog.querySelector("#author");
+const pagesInp = favDialog.querySelector("#pages");
+const readInp = favDialog.querySelector("#read");
+const notReadInp = favDialog.querySelector("#notRead");
+const confirmBtn = favDialog.querySelector("#confirmBtn");
