@@ -30,3 +30,31 @@ html {
   tr:nth-child(odd) td {
     background-color: rgb(245,245,245);
   }
+
+  #newBookBtn,
+  #showDialog {
+    display: block;
+    margin: 10px auto;
+    border: none;
+    background-color: blanchedalmond;
+    padding: 10px;
+    border-radius: 0.5rem;
+    font-weight: 600;
+  }
+
+  #newBookBtn:hover,
+  #showDialog:hover {
+    background-color: green;
+    color: white;
+  }
+
+  ::backdrop {
+    background-image: linear-gradient(
+      45deg,
+      magenta,
+      rebeccapurple,
+      dodgerblue,
+      green
+    );
+    opacity: 0.75;
+  }
