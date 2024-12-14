@@ -137,3 +137,17 @@ for (var i = 0; i < myLibrary.length; i++) {
     const prop1 = "number";
     myLibrary[i][prop1] = i + 2;
 }
+
+displayBooks();
+
+const removeBtn = document.querySelectorAll(".removeBtn");
+console.log(removeBtn);
+
+
+removeBtn.forEach(elm => {
+    elm.addEventListener("click", (e) => {
+        const element = e.target.parentElement.parentElement;
+        console.log(element);
+        element.remove();
+    });
+});
